@@ -42,13 +42,13 @@
         %p.message__text
           こんにちは
     .form
-      %form.new_message#new_message{:action => "/groups/2229/messages", :enctype => "multipart/form-data", :method => "post"}
-        %input{:name => "utf8",:type => "hidden", :value => ""}/
-        %input{:name => "authenticity_token",:type => "hidden", :value => ""}/
+      %form.new_message#new_message{action: "/groups/2229/messages", enctype: "multipart/form-data", method: "post"}
+        %input{name: "utf8",type: "hidden", value: ""}/
+        %input{name: "authenticity_token",type: "hidden", value: ""}/
         .input-box
-          %input.input-box__text#message__content{:type => "text", :value => "type a message", :placeholder => "type a message", :name => "message[content]"}/
-          %label.input-box__image{:for => "message_image"}/
+          %input.input-box__text#message__content{type: "text", value: "type a message", placeholder: "type a message", name: "message[content]"}/
+          %label.input-box__image{for: "message_image"}/
           =fa_icon "image", id: "message_image"
-          %input.input-box__image__file#message_image{:type => "file", :name => "message[image]"}/
-        %input.submit-btn{:type => "submit", :value => "Send" ,:name => "commit", :data-disable-with => "Send" }/
+          %input.input-box__image__file#message_image{type: "file", name: "message[image]"}/
+        %input.submit-btn{type: "submit", value: "Send" ,name: "commit", data: "Send" }/
           
