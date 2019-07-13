@@ -3,24 +3,7 @@
 
 .wrapper
   .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name
-          名前
-        %ul.side-header__box__menu
-          %ul.side-header__box__menu__new-group
-            =link_to "https://chat-space-sample.herokuapp.com/groups/new"  do
-              %i.fa.fa-edit
-          %ul.side-header__box__menu__edit-user
-            =link_to "https://chat-space-sample.herokuapp.com/users/1067/edit" do
-              %i.fa.fa-cog
-    .groups
-      .group
-        %p.group__group-name
-          example
-        %p.group__latest-message
-          まだメッセージがありません
-
+    = render 'devise/shared/side_bar'
   .chat-main
     .main-header
       .main-header__left-box
