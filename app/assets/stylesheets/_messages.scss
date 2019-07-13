@@ -40,6 +40,18 @@
       }
     }
 }
+.header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+  &__lists{
+    display: flex;
+    li{
+      margin-left: 0.3rem;
+    }
+  } 
+}
 .groups{
   height: calc(100vh - 100px);
   background-color: #2f3e51;
@@ -48,12 +60,13 @@
 }
 .group{
   margin-bottom: 40px;
-  &__group-name{
+  &__name{
     font-size: 15px;
     margin-bottom: 5px;
     }
-  &__latest-message{
+  &__message{
     font-size: 11px;
+    margin-bottom: 30px;
     }
 }
 .chat-main{
