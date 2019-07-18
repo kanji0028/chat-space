@@ -13,14 +13,16 @@ $(function(){
                     <p class="message__text__content">
                     ${message.content}
                     </p>
-                    <img class="message__text__image" src="/uploads/message/image/${message.id}/${message.image}" alt="Profy">
+                    <img class="message__text__image" src="${message.image}">
                   </div>`
+    console.log(html)
     return html;
   }
     $('#new_message').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
       var url = $(this).attr('action')
+      $('.submit-btn').removeAttr('data-disable-with');
       $.ajax({
         url: url,
         type: "POST",
@@ -32,7 +34,11 @@ $(function(){
       .done(function(data){
         console.log("成功")
         var html = buildHTML(data);
-        $('.messages').append(html)
+        $('.messages').append(html);
+        $('.messages').animate({
+          scrollTop: $('.messages')[0].scrollHeight
+        }, 'fast');
+        $("#new_message")[0].reset();
         $('.input-box__text').val('')
       })
       .fail(function(){
