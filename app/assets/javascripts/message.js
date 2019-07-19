@@ -38,8 +38,8 @@ $(function(){
         $('.messages').animate({
           scrollTop: $('.messages')[0].scrollHeight
         }, 'fast');
-        $("#new_message")[0].reset();
-        $('.input-box__text').val('')
+        // $("#new_message")[0].reset();
+        // $('.input-box__text').val('')
       })
       .fail(function(){
         alert("error");
