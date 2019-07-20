@@ -1,6 +1,3 @@
--# .flash-box
--#   グループを作成しました
-
 .wrapper
   .chat-side
     = render 'devise/shared/side_bar'
@@ -11,9 +8,10 @@
         .main-header__left-box__current-group
           = @group.name
         %ul.main-header__left-box__member-list
-          Member
+          Member: 
           %li.main-header__left-box__member-list__member
-            = current_user.name
+            - @users.each do |user|
+              = user.name
       .main-header__edit-btn
         =link_to 'Edit', edit_group_path(current_user)
     .messages
