@@ -54,7 +54,6 @@ $(function(){
         data: {last_id: last_message_id}
       })
       .done(function(messages) {
-        console.log(messages);
         var insertTHML = "";
         messages.forEach(function(message){
           insertTHML = buildHTML(message);
@@ -63,7 +62,7 @@ $(function(){
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         })
       .fail(function() {
-        console.log('error');
+        alert('error');
         });
     }
   };
