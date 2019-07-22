@@ -2,7 +2,7 @@
 # require "capistrano/setup"
 
 # Include default deployment tasks
-# require "capistrano/deploy"
+require "capistrano/deploy"
 
 # Load the SCM plugin appropriate to your project:
 #
@@ -36,7 +36,7 @@ install_plugin Capistrano::SCM::Git
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 require "capistrano/setup"
-require "capistrano/deploy"
+# require "capistrano/deploy"
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
