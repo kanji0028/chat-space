@@ -27,10 +27,14 @@
     .chat-group-form__field--right
       #chat-group-users
         #chat-group-user-8.chat-group-user.clearfix.js-chat-member
+          =current_user.name
           %input{name: "group[user_ids][]", type: "hidden", value: "#{ current_user.id }"}
-          %p.chat-group-user__name
-            = current_user.name
-          %p.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
+        - @users.each do |user|
+          - if current_user.name != user.name
+            #chat-group-user-8.chat-group-user.clearfix.js-chat-member
+              %p.chat-group-user__name=user.name
+              %input{name: "group[user_ids][]", type: "hidden", value: "#{ user.id }"} 
+              %p.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
 
       #member-search-result
   .chat-group-form__field.clearfix
