@@ -30,33 +30,36 @@ $(function(){
 
   $("#user-search-field").on("keyup" , function(){
     var input = $("#user-search-field").val();
-
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      data: { keyword: input },
-      dataType: 'json'
-    })
-
-    .done(function(users){
-      $("#user-search-result").empty();
-          if (users.length !==0){
-            users.forEach(function(user){
-            appendUsers(user);
-            });
-          }
-          else {
-            appendNoUsers("一致するユーザーはいません");
-          }
-        })
-    .fail(function(){
-      alert('検索に失敗しました');
+    if(input.length === 0) {
+    }
+    else{
+      
+      $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { keyword: input },
+        dataType: 'json'
       })
+      
+      .done(function(users){
+        $("#user-search-result").empty();
+        if (users.length !==0){
+          users.forEach(function(user){
+            appendUsers(user);
+          });
+        }
+        else {
+          appendNoUsers("一致するユーザーはいません");
+        }
+      })
+      .fail(function(){
+        alert('検索に失敗しました');
+      })
+    }
   });
 
     $(function(){
       $(document).on("click", ".user-search-add" ,function(){
-        console.log("成功");
         var name = $(this).data("user-name");
         var user_id = $(this).data("user-id");
         $(this).parent().remove();

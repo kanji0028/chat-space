@@ -58,8 +58,8 @@ $(function(){
         messages.forEach(function(message){
           insertTHML = buildHTML(message);
           $('.messages').append(insertTHML);
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         })
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         })
       .fail(function() {
         alert('error');
