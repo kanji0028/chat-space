@@ -44,14 +44,14 @@ $(function(){
       })
       
       .done(function(users){
-        // if (users.length !==0){
+        if (users.length !==0){
           users.forEach(function(user){
             appendUsers(user);
           });
-        // }
-        // else {
-        //   appendNoUsers("一致するユーザーはいません");
-        // }
+        }
+        else {
+          appendNoUsers("一致するユーザーはいません");
+        }
       })
       .fail(function(){
         alert('検索に失敗しました');
